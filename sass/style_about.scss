@@ -1,0 +1,366 @@
+@charset "UTF-8";
+
+@use "base" as b;
+@use "fonts" as f;
+@use "mixin" as m;
+@use "reset" as r;
+@use "variables" as v;
+
+
+// top =========================================================================
+// top =========================================================================
+.top {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 120px;
+
+    .top__contents {
+        max-width: 100%;
+        .top__img {
+            width: 100%;
+            margin: 0 auto;
+            height: 340px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            transition: all 0.2s;
+            @include m.mq("sp") {
+                height: 188px;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url("../img/img__about/page-about_top.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat; 
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+                z-index: 100;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                background: #000;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                border-radius: 20px;
+                z-index: 100;
+            }
+        }
+    }
+} 
+
+.top__title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    color: b.$col_w;
+    padding-top: 128px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        padding-top: 61.3px;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+.top__text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 2.5;
+    color: b.$col_w;
+    padding-top: 20px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        font-size: 12px;
+        line-height: 3;
+        padding-top: 0px;
+    }
+}
+
+.top__tag {
+    display: flex;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 14px;
+    margin-left: 30px;
+    @include m.mq("sp") {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .top__home {
+        color: #C2C2C2;
+    }
+    .tag__left {
+        padding-left: 8px;
+    }
+}
+
+
+
+// policy =================================================================
+// policy =================================================================
+
+.policy {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 200px;
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url(../img/concept-bg.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 725px;
+        width: 102%;
+        top: 200px;
+        left: 32%;
+        @include m.mq("sp") {
+            left: 2%;
+            height: 82.2vw;
+            background-size: cover;
+            top: 160px;
+        }
+    }
+    @include m.mq("sp") {
+        padding: 80px 0 0;
+    }
+    .policy__wrap {
+        display: flex;
+        position: relative;
+        padding-top: 240px;
+        @include m.mq("wide") {
+            padding-top: 160px;
+        }
+        @include m.mq("sp") {
+            padding-top: 150px;
+            flex-direction: column-reverse;
+        }
+        .policy__img {
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+            height: 438px;
+            @include m.mq("sp") {
+                width: 90%;
+                height: 61.2vw;
+                margin-right: auto;
+            }
+            img {
+                height: 438px;
+                object-fit: cover;
+                object-position: bottom;
+                width: 100%;
+                @include m.mq("sp") {
+                    height: 61.2vw;
+                    border-radius: 0 20px 20px 0; 
+                }
+            }
+        }
+    }
+}
+.policy__contents {
+    margin-left: 95px;
+    padding-top: 36px;
+    width: 33%;
+    @include m.mq("wide") {
+        margin-left: 40px;
+        padding-top: 0;
+    }
+    @include m.mq("sp") {
+        margin: 0 auto;
+        padding-top: 0;
+        width: 89%;
+    }
+
+    .policy__contents-title {
+        color: b.$col_main;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 2.5;
+        @include m.mq("sp") {
+            font-size: 11px;
+        }
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.5;
+        padding-top: 22px;
+        @include m.mq("wide") {
+            font-size: 24px;
+        }
+        @include m.mq("sp") {
+            font-size: 20px;
+            line-height: 1.6;
+            padding-top: 16px;
+        }
+    }
+    .policy__contents-text {
+        font-size: 14px;
+        line-height: 1.7;
+        padding-top: 36px;
+        @include m.mq("sp") {
+            padding-top: 32px;
+        }
+    }        
+}
+
+
+
+
+// feature =================================================================
+// feature =================================================================
+
+.feature {
+    position: relative;
+    overflow: hidden;
+    padding: 66px 0 160px;
+    
+    @include m.mq("wide") {
+        padding-top: 0;
+    }
+    @include m.mq("sp") {
+        padding: 100px 0 0;
+    }
+    .feature__wrap {
+        display: flex;
+        position: relative;
+        @include m.mq("sp") {
+            display: block;
+        }
+        .feature__img {
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+            height: 438px;
+            @include m.mq("sp") {
+                width: 90%;
+                height: 61.2vw;
+                margin-left: auto;
+            }
+            img {
+                height: 438px;
+                object-fit: cover;
+                object-position: bottom;
+                width: 100%;
+                @include m.mq("sp") {
+                    height: 61.2vw;
+                }
+            }
+        }
+    }
+}
+.feature__contents {
+    margin-left: auto;
+    padding-top: 36px;
+    padding-right: 93px;
+    width: 42%;
+    @include m.mq("wide") {
+        padding-top: 0;
+        padding-right: 40px;
+    }
+    @include m.mq("sp") {
+        margin: 0 auto;
+        padding: 0 0 40px 0;
+        width: 89%;
+    }
+
+    .feature__contents-title {
+        color: b.$col_main;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 2.5;
+        @include m.mq("sp") {
+            font-size: 11px;
+        }
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.5;
+        padding-top: 22px;
+        @include m.mq("wide") {
+            font-size: 24px;
+        }
+        @include m.mq("sp") {
+            font-size: 20px;
+            line-height: 1.6;
+            padding-top: 16px;
+        }
+    }
+    .feature__contents-text {
+        font-size: 14px;
+        line-height: 1.7;
+        padding-top: 36px;
+        @include m.mq("sp") {
+            padding-top: 32px;
+        }
+    }        
+}
+
+
+// state =====================================================
+// state =====================================================
+
+.state {
+    padding-bottom: 160px;
+    @include m.mq("sp") {
+        padding: 100px 0;
+    }
+    .state__contents {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 60px;
+        justify-content: center;
+        @include m.mq("sp") {
+            padding: 40px 0 0; 
+        }
+        .state__box {
+            width: 29.3%;
+            margin: 0 20px;   
+            @include m.mq("wide") {
+                width: 33.4%;
+                margin: 0 30px;
+                &:nth-child(n + 3) {
+                    padding-top: 36px;
+                }
+            }
+            @include m.mq("sp") {
+                width: 46%;
+                margin: 0 6.7px;
+                &:nth-child(n + 3) {
+                    padding-top: 13.4px;
+                }
+            }
+            &:nth-child(n + 4) {
+                padding-top: 40px;
+                @include m.mq("wide") {
+                    padding-top: 36px;
+                }
+                @include m.mq("sp") {
+                    padding-top: 13.4px;
+                }
+            }
+            img {
+                border-radius: 20px;
+            }
+        }
+    }
+}

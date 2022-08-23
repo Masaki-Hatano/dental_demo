@@ -1,0 +1,370 @@
+@charset "UTF-8";
+
+@use "base" as b;
+@use "fonts" as f;
+@use "mixin" as m;
+@use "reset" as r;
+@use "variables" as v;
+
+// top =========================================================================
+// top =========================================================================
+.top {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 120px;
+
+    .top__contents {
+        max-width: 100%;
+        .top__img {
+            width: 100%;
+            margin: 0 auto;
+            height: 340px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            transition: all 0.2s;
+            @include m.mq("sp") {
+                height: 188px;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url("../img/img_staff/page-staff_top.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+                z-index: 100;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                background: #000;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                border-radius: 20px;
+                z-index: 100;
+            }
+        }
+    }
+}
+
+.top__title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    color: b.$col_w;
+    padding-top: 128px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        padding-top: 61.3px;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+.top__text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 2.5;
+    color: b.$col_w;
+    padding-top: 20px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        font-size: 12px;
+        line-height: 3;
+        padding-top: 0px;
+    }
+}
+
+.top__tag {
+    display: flex;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 14px;
+    margin-left: 30px;
+    @include m.mq("sp") {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .top__home {
+        color: #c2c2c2;
+    }
+    .tag__left {
+        padding-left: 8px;
+    }
+}
+
+// greeting ============================================================
+// greeting ============================================================
+
+.greeting {
+    padding-top: 80px;
+    // padding-bottom: 160px;
+    @include m.mq("sp") {
+        padding-top: 60px;
+        padding-bottom: 100px;
+    }
+}
+.greeting__contents {
+    display: flex;
+    padding: 60px 20px 0 20px;
+    width: 1040px;
+    max-width: 100%;
+    margin: 0 auto;
+    @include m.mq("sp") {
+        padding: 40px 20px 0 20px;
+    }
+    @include m.mq("wide") {
+        max-width: 732px;
+    }
+
+    .greeting__contents-left {
+        width: 50%;
+        max-width: 460px;
+        @include m.mq("sp") {
+            width: 100%;
+            margin: 0 auto;
+        }
+        @include m.mq("wide") {
+            max-width: 320px;
+        }
+
+        h4 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.5;
+            @include m.mq("sp") {
+                font-size: 20px;
+                line-height: 1.6;
+            }
+            @include m.mq("wide") {
+                font-size: 22px;
+                line-height: 1.6;
+            }
+        }
+        .greeting__contents-comment {
+            font-size: 14px;
+            line-height: 1.7;
+            p {
+                padding-top: 40px;
+                @include m.mq("wide") {
+                    padding-top: 20px;
+                }
+            }
+        }
+        .greeting__contents-name {
+            font-size: 14px;
+            line-height: 1.7;
+            padding-top: 20px;
+            @include m.mq("wide") {
+                padding-top: 10px;
+            }
+            p {
+                display: flex;
+                justify-content: end;
+            }
+        }
+
+        .greeting__contents-career {
+            padding-top: 60px;
+            @include m.mq("wide") {
+                padding-top: 20px;
+            }
+            h5 {
+                font-size: 16px;
+                line-height: 1.7;
+                padding-bottom: 4px;
+                border-bottom: solid 1px #000;
+            }
+            .career__detail {
+                display: flex;
+                font-size: 14px;
+                line-height: 1.7;
+                padding-top: 8px;
+                .career__from {
+                    padding-left: 16px;
+                }
+            }
+        }
+        .greeting__contents-license {
+            padding-top: 32px;
+            @include m.mq("sp") {
+                padding-top: 40px;
+            }
+            @include m.mq("wide") {
+                padding-top: 16px;
+            }
+            h5 {
+                font-size: 16px;
+                line-height: 1.7;
+                padding-bottom: 4px;
+                border-bottom: solid 1px #000;
+            }
+            p {
+                font-size: 14px;
+                line-height: 1.7;
+                padding-top: 8px;
+            }
+        }
+    }
+
+    .greeting__contents-right {
+        width: 50%;
+        max-width: 460px;
+        margin-left: auto;
+        img {
+            border-radius: 20px;
+        }
+        @include m.mq("sp") {
+            display: none;
+        }
+        @include m.mq("wide") {
+            max-width: 320px;
+        }
+    }
+    .greeting__sp-img {
+        display: none;
+        @include m.mq("sp") {
+            display: block;
+            padding-top: 40px;
+            img {
+                border-radius: 20px;
+            }
+        }
+    }
+}
+
+/*==================================================
+スライダーのためのcss
+===================================*/
+
+.slider img {
+    width: 100%; /*スライダー内の画像を横幅100%に*/
+    height: auto;
+    border-radius: 20px;
+}
+
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider .slick-slide {
+    margin: 0 10px; /*スライド左右の余白調整*/
+}
+
+// introduction ==========================================================
+// introduction ==========================================================
+
+.introduction {
+    padding: 160px 0;
+    @include m.mq("sp") {
+        padding: 100px 0;
+    }
+}
+
+.introduction__contents {
+    padding: 60px 20px 0 20px;
+    @include m.mq("sp") {
+        padding: 40px 0 0 0;
+    }
+    h5 {
+        font-size: 16px;
+        line-height: 1.7;
+        padding-bottom: 4px;
+        border-bottom: solid 1px #000;
+    }
+}
+
+.dr__box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    @include m.mq("sp") {
+        display: block;
+    }
+    .dr__box-card {
+        width: 30%;
+        max-width: 280px;
+        &:not(:nth-child(3n + 1)) {
+            margin-left: 80px;
+            @include m.mq("wide") {
+                margin-left: 36px;
+            }
+            @include m.mq("sp") {
+                margin-left: 0;
+            }
+        }
+        &:not(:nth-child(-n + 3)) {
+            margin-top: 54px;
+        }
+        @include m.mq("sp") {
+            min-width: 335px;
+            width: 100%;
+            &:nth-child(n + 2) {
+                margin-top: 60px;
+            }
+        }
+        
+        img {
+            border-radius: 20px; 
+            @include m.mq("sp") {
+                min-width: 335px;
+                width: 100%;
+            }
+        }
+        .card__title {
+            text-align: center;
+            margin: 16px 0;
+            @include m.mq("wide") {
+                margin: 12px 0;
+            }
+            .license {
+                font-size: 12px;
+                letter-spacing: 0.08em;
+                line-height: 1.5;
+            }
+            .name {
+                font-size: 18px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                line-height: 1.5;
+            }
+        }
+        .card__prf {
+            font-size: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            .prf__cat {
+                width: 50%;
+                background: b.$col_sub2;
+                border: solid 1px #fff;
+                padding: 18px 0 18px 20px;
+                @include m.mq("wide"){
+                    padding: 16px 0 16px 10px;
+                }
+            }
+            .prf__ans {
+                width: 50%;
+                padding: 18px 0 18px 20px;
+                @include m.mq("wide") {
+                    padding: 16px 0 16px 10px;
+                }
+            }
+        }
+    }
+}
+.introduction__contents-as {
+    padding-top: 60px;
+}

@@ -1,0 +1,424 @@
+@charset "UTF-8";
+
+@use "base" as b;
+@use "fonts" as f;
+@use "mixin" as m;
+@use "reset" as r;
+@use "variables" as v;
+
+// top =========================================================================
+// top =========================================================================
+.top {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 120px;
+
+    .top__contents {
+        max-width: 100%;
+        .top__img {
+            width: 100%;
+            margin: 0 auto;
+            height: 340px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            transition: all 0.2s;
+            @include m.mq("sp") {
+                height: 188px;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url("https://mskwork.org/wp/wp-content/themes/ptf/img/img_contact/page-contact_top.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+                z-index: 100;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                background: #000;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                border-radius: 20px;
+                z-index: 100;
+            }
+        }
+    }
+}
+
+.top__title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    color: b.$col_w;
+    padding-top: 128px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        padding-top: 61.3px;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+.top__text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 2.5;
+    color: b.$col_w;
+    padding-top: 20px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        font-size: 12px;
+        line-height: 3;
+        padding-top: 0px;
+    }
+}
+
+.top__tag {
+    display: flex;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 14px;
+    margin-left: 30px;
+    @include m.mq("sp") {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .top__home {
+        color: #c2c2c2;
+    }
+    .tag__left {
+        padding-left: 8px;
+    }
+}
+
+.reserve_thanks-text {
+    max-width: 728px;
+    margin: 80px auto 160px auto;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    @include m.mq("sp") {
+        margin-top: 60px;
+        margin-bottom: 100px;
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.4;
+        margin-bottom: 28px;
+    }
+    .reserve_thanks-address {
+        max-width: 260px;
+        margin-bottom: 10px;
+        .adress-time {
+            text-align: center;
+            font-size: 12px;
+            color: b.$col_main;
+            position: relative;
+            top: -10px;
+        }
+    }
+    .reserve_thanks-text-content {
+        &:nth-child(n + 2) {
+            margin-top: 42px;
+        }
+    }
+}
+
+// form ================================================================
+// form ================================================================
+.reserve__box {
+    max-width: 728px;
+    margin: 60px auto 60px auto;
+    padding: 0 20px;
+    @include m.mq("sp") {
+        width: 100%;
+    }
+    .form__contents {
+        width: 100%;
+        border-top: solid 1px #ddd;
+        .form__content {
+            display: flex;
+            width: 100%;
+            padding: 24px 0;
+            position: relative;
+            border-bottom: solid 1px #ddd;
+            @include m.mq("sp") {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.form__label {
+    width: 240px;
+    font-size: 16px;
+    line-height: 3.2;
+    height: 100%;
+    position: relative;
+    @include m.mq("sp") {
+        line-height: 2.4;
+    }
+    .btn__red {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "必須";
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            color: b.$col_w;
+            background: #ee5a6d;
+            width: 36px;
+            height: 23px;
+            line-height: 1.9;
+            border-radius: 4px;
+            right: -46px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    p {
+        display: inline-block;
+    }
+}
+.form__input {
+    width: calc(100% - 240px);
+    margin-left: auto;
+    @include m.mq("sp") {
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    [type="text"],
+    [type="tel"],
+    [type="email"],
+    [type="date"] {
+        box-shadow: none;
+        border: none;
+        background: #f6f6f6;
+        padding: 13px 16px;
+        appearance: none;
+        border-radius: 0;
+        color: inherit;
+        font-size: 16px;
+        line-height: 1.7;
+        width: 100%;
+        &:nth-child(n + 2) {
+            margin-top: 32px;
+        }
+    }
+    // .date {
+    // }
+    textarea {
+        box-shadow: none;
+        border: none;
+        background: #f6f6f6;
+        padding: 13px 16px;
+        appearance: none;
+        border-radius: 0;
+        color: inherit;
+        font-size: 16px;
+        line-height: 1.7;
+        width: 100%;
+        height: 200px;
+        resize: none;
+    }
+}
+
+.form__contents-btn {
+    text-align: center;
+    margin-top: 60px;
+}
+
+[type="submit"] {
+    color: b.$col_main;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    width: 360px;
+    background: #fff;
+    border: solid 1px b.$col_main;
+    border-radius: 28px;
+    padding: 17px 0;
+    transition: 0.3s all;
+    cursor: pointer;
+    &:hover {
+        color: #fff;
+        background: b.$col_main;
+    }
+    @include m.mq("sp") {
+        width: 273px;
+    }
+}
+
+select {
+    box-shadow: none;
+    border: none;
+    background: #f6f6f6;
+    padding: 13px 16px;
+    border-radius: 0;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1.7;
+    width: 100%;
+    position: relative;
+    appearance: none;
+}
+
+.uni {
+    position: relative;
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 8px;
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        right: 13px;
+        transform: translateY(-50%);
+        background: url("https://mskwork.org/wp/wp-content/themes/ptf/img/img_contact/sita.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+}
+[type="radio"] {
+    display: none;
+    position: relative;
+    transition: all 1s;
+}
+[type="radio"]:checked + .wpcf7-list-item-label {
+    &::after {
+        display: block;
+    }
+}
+.sp-radio {
+    .wpcf7-list-item-label {
+        font-size: 14px;
+        display: inline-block;
+        position: relative;
+        transition: all 1s;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-left: 32px;
+        margin-right: 12px;
+        &::before {
+            position: absolute;
+            content: "";
+            width: 24px;
+            height: 24px;
+            border: solid 1px b.$col_main;
+            border-radius: 99px;
+            left: 0px;
+            top: -6px;
+            background: #fff;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: b.$col_main;
+            top: 1px;
+            left: 7px;
+            border-radius: 99px;
+            display: none;
+        }
+    }
+}
+.sp-radio {
+    @include m.mq("sp") {
+        margin-top: 20px;
+    }
+}
+
+[type="checkbox"] {
+    display: none;
+    position: relative;
+    transition: all 1s;
+    &:checked + .wpcf7-list-item-label {
+        transition: all 1s;
+        &::after {
+            position: absolute;
+            content: "";
+            width: 22px;
+            height: 14px;
+            border-left: solid 4px b.$col_main;
+            border-bottom: solid 4px b.$col_main;
+            top: -6px;
+            left: 0px;
+            display: block;
+            transform: rotate(-45deg);
+        }
+    }
+}
+.sp-checkbox {
+    .wpcf7-list-item-label {
+        font-size: 14px;
+        display: inline-block;
+        position: relative;
+        padding-left: 32px;
+        margin-right: 12px;
+        margin-bottom: 20px;
+        transition: all 1s;
+        &::before {
+            position: absolute;
+            content: "";
+            width: 24px;
+            height: 24px;
+            border: solid 1px b.$col_main;
+            left: 0px;
+            top: -6px;
+            background: #fff;
+        }
+    }
+}
+.wpcf7-radio {
+    position: relative;
+    top: 50%;
+}
+// .bottom {
+// }
+
+.checkbox__must {
+    position: relative;
+    // display: inline-block;
+    &::before {
+        position: absolute;
+        content: "※(複数選択可)";
+        font-size: 11px;
+        bottom: 42px;
+        left: 0;
+        color: #888;
+        @include m.mq("sp") {
+            bottom: -20px;
+        }
+    }
+}
+.sp-checkbox {
+    @include m.mq("sp") {
+        margin-top: 38px;
+    }
+}
+
+

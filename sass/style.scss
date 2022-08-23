@@ -1,0 +1,850 @@
+@charset "UTF-8";
+
+@use "base" as b;
+@use "fonts" as f;
+@use "mixin" as m;
+@use "reset" as r;
+@use "variables" as v;
+
+// top ===============================================================================================
+// top ===============================================================================================
+
+.top {
+    padding-top: 120px;
+    @include m.mq("sp") {
+        padding-top: 80px;
+    }
+    .top__slide {
+        width: calc(100% - 120px);
+        margin: 0 auto;
+        @include m.mq("sp") {
+            height: 400px;
+            width: calc(100% - 40px);
+        }
+        img {
+            @include m.mq("sp") {
+                border-radius: 16px;
+                height: 400px;
+                object-fit: cover;
+                object-position: left;
+            }
+        }
+    }
+
+    .top__contents {
+        display: flex;
+        width: calc(100% - 200px);
+        justify-content: space-around;
+        margin: 0 auto;
+        @include m.mq("wide") {
+            margin-left: 23px;
+            position: relative;
+            bottom: 12px;
+        }
+        @include m.mq("sp") {
+            display: block;
+            width: calc(100% - 40px);
+        }
+
+        .top__news {
+            width: 538px;
+            padding-top: 21px;
+            @include m.mq("sp") {
+                width: 100%;
+                position: relative;
+                padding-top: 0px;
+            }
+            .top__news-contents {
+                display: flex;
+                @include m.mq("sp") {
+                    padding-top: 18px;
+                }
+                .title {
+                    font-size: 20px;
+                    font-weight: 700;
+                    letter-spacing: 0.1em;
+                    line-height: 1.8;
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        content: "NEWS";
+                        color: b.$col_main;
+                        font-size: 12px;
+                        bottom: 0;
+                        padding-left: 16px;
+                        line-height: 2.6;
+                    }
+                }
+                .past__news {
+                    margin-left: auto;
+                    font-size: 12px;
+                    line-height: 3;
+                    color: #888;
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        height: 1px;
+                        background: #888;
+                        width: 132px;
+                        bottom: 10px;
+                        left: 0;
+                    }
+                }
+            }
+            .news__content {
+                display: flex;
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                position: relative;
+                transition: all 0.5s;
+                &:hover {
+                    color: b.$col_main;
+                    &::after {
+                        background: b.$col_main;
+                        right: 0;
+                    }
+                    .news__img {
+                        right: 0;
+                        &::after {
+                            background-color: b.$col_main;
+                        }
+                    }
+                }
+                .news__img {
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    right: 8px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 100;
+                    transition: all 0.5s;
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 85%;
+                        height: 85%;
+                        background: #000;
+                        top: 1px;
+                        left: 1px;
+                        z-index: 8;
+                    }
+                    img {
+                        position: relative;
+                        z-index: 10;
+                    }
+                }
+
+                .news__date {
+                    font-size: 12px;
+                    line-height: 3;
+                    padding-left: 12px;
+                }
+                .news__title {
+                    font-size: 14px;
+                    padding-left: 24px;
+                    line-height: 2.5;
+                }
+            }
+            .schedule__sp {
+                display: none;
+                @include m.mq("sp") {
+                    display: block;
+                    box-shadow: 0 3px 6px rgba(#000, 0.16);
+                    border-radius: 16px;
+                    position: relative;
+                    // top: -157px;
+                    top: -22px;
+                    margin: 0 auto;
+                }
+                @include m.mq("wide") {
+                    display: block;
+                    box-shadow: 0 3px 6px rgba(#000, 0.16);
+                    border-radius: 16px;
+                    position: relative;
+                    // top: -157px;
+                    top: -22px;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .top__schedule {
+            .schedule {
+                width: 477px;
+                position: relative;
+                bottom: 25px;
+                @include m.mq("sp") {
+                    display: none;
+                }
+                @include m.mq("wide") {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// concept =================================================================
+// concept =================================================================
+
+.concept {
+    position: relative;
+    overflow: hidden;
+    padding: 180px 0 200px;
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url(https://mskwork.org/wp/wp-content/themes/ptf/img/concept-bg.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 725px;
+        width: 102%;
+        top: 0;
+        left: 32%;
+        // z-index: 2;
+        @include m.mq("sp") {
+            left: 5%;
+            height: 82.2vw;
+            background-size: cover;
+            top: 100px;
+        }
+    }
+    @include m.mq("sp") {
+        padding: 160px 0 0;
+    }
+    .concept__wrap {
+        display: flex;
+        position: relative;
+        @include m.mq("sp") {
+            flex-direction: column-reverse;
+        }
+
+        .concept__img {
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+            height: 438px;
+            @include m.mq("sp") {
+                width: 90%;
+                height: 61.2vw;
+                margin-right: auto;
+            }
+            img {
+                height: 438px;
+                object-fit: cover;
+                object-position: bottom;
+                width: 100%;
+                border-radius: 20px 20px 0 0px;
+                @include m.mq("sp") {
+                    height: 61.2vw;
+                }
+            }
+        }
+    }
+}
+.concept__contents {
+    margin-left: 95px;
+    padding-top: 36px;
+    width: 33%;
+    @include m.mq("wide") {
+        margin-left: 40px;
+    }
+    @include m.mq("sp") {
+        margin: 0 auto;
+        padding-top: 0;
+        width: 89%;
+    }
+
+    .concept__contents-title {
+        color: b.$col_main;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 2.5;
+        @include m.mq("sp") {
+            font-size: 11px;
+        }
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.5;
+        padding-top: 22px;
+        @include m.mq("wide") {
+            font-size: 24px;
+        }
+        @include m.mq("sp") {
+            font-size: 20px;
+            line-height: 1.6;
+            padding-top: 16px;
+        }
+    }
+    .concept__contents-text {
+        font-size: 14px;
+        line-height: 1.7;
+        padding-top: 36px;
+        @include m.mq("sp") {
+            padding-top: 32px;
+        }
+    }
+    .about__btn {
+        color: b.$col_main;
+        background: b.$col_w;
+        border: solid 1px b.$col_main;
+        width: 176px;
+        height: 43px;
+        border-radius: 24px;
+        text-align: center;
+        line-height: 2.6;
+        position: relative;
+        margin-top: 40px;
+        transition: all 0.5s;
+        &:hover {
+            cursor: pointer;
+            background: b.$col_main;
+            color: b.$col_w;
+            &::after {
+                background: url(https://mskwork.org/wp/wp-content/themes/ptf/img/icon-arrow-white-btn.png) no-repeat center center / contain;
+            }
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            right: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            background: url(https://mskwork.org/wp/wp-content/themes/ptf/img/icon-arrow-blue-btn.png) no-repeat center center / contain;
+            transition: all 0.5s;
+        }
+        @include m.mq("sp") {
+            margin: 40px auto;
+        }
+    }
+}
+
+// recommend ====================================================================
+// recommend ====================================================================
+.recommend {
+    @include m.mq("sp") {
+        padding-top: 167px;
+    }
+}
+.recommend__contents {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 0 140px;
+    @include m.mq("sp") {
+        display: block;
+        padding: 60px 0 100px;
+    }
+
+    .recommend__card {
+        width: 276px;
+        @include m.mq("wide") {
+            width: 30%;
+        }
+        @include m.mq("sp") {
+            margin: 0 auto;
+            &:nth-child(n + 2) {
+                padding-top: 60px;
+            }
+        }
+        .recommend__top {
+            text-align: center;
+        }
+        .recommend__icon {
+            padding-top: 15.6px;
+            text-align: center;
+        }
+        .recommend__title {
+            position: relative;
+            // display: inline-block;
+            &::after {
+                position: absolute;
+                content: "";
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: b.$col_main rgba(0 0 0 / 0) rgba(0 0 0 / 0) rgba(0 0 0 / 0);
+                border-width: 24px 24px 24px 24px;
+            }
+            p {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.6;
+                letter-spacing: 0.08em;
+                color: b.$col_w;
+                background: b.$col_main;
+                border-radius: 22px;
+                text-align: center;
+                padding: 3px 0;
+                position: relative;
+                top: -20px;
+                @include m.mq("wide") {
+                    font-size: 16px;
+                }
+            }
+        }
+        .recommend__text {
+            font-size: 14px;
+            line-height: 1.7;
+            .recommend__red {
+                color: #ee5a6d;
+            }
+            @include m.mq("wide") {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+// announce  =========================================================
+// announce  =========================================================
+
+.announce__bg-top {
+    width: 100%;
+    height: 15.7vw;
+    position: relative;
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url("https://mskwork.org/wp/wp-content/themes/ptf/img/bg-announce_top.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: inherit;
+        width: inherit;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.announce__bg-bottom {
+    width: 100%;
+    height: 7.61vw;
+    position: relative;
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url("https://mskwork.org/wp/wp-content/themes/ptf/img/bg-bottom.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: inherit;
+        width: inherit;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.announce__bg {
+    background-color: b.$col_sub2;
+}
+.title__announce {
+    @include m.mq("sp") {
+        padding-top: 29.12px;
+    }
+}
+
+.announce__contents {
+    padding: 60px 0 94px;
+    @include m.mq("sp") {
+        padding-top: 40px;
+    }
+    .announce__contents-card {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        @include m.mq("wide") {
+            justify-content: space-around;
+        }
+        @include m.mq("sp") {
+            display: block;
+        }
+        .card__general {
+            width: 45%;
+            background-size: cover;
+            height: 288px;
+            border-radius: 20px;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            overflow: hidden;
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url("https://mskwork.org/wp/wp-content/themes/ptf/img/medical_1.png");
+                background-size: cover;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+                z-index: 100;
+                transition: all 0.3s ease 0s;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                background: #000;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                border-radius: 20px;
+                z-index: 100;
+            }
+            &:hover {
+                &::before {
+                    transform: scale(1.1, 1.1);
+                }
+                &::after {
+                    opacity: 0.4;
+                    cursor: pointer;
+                }
+            }
+            @include m.mq("sp") {
+                width: 100%;
+                height: 209.82px;
+            }
+        }
+        .card__special {
+            width: 45%;
+            background-size: cover;
+            height: 288px;
+            border-radius: 20px;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            overflow: hidden;
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url("https://mskwork.org/wp/wp-content/themes/ptf/img/medical_2.png");
+                background-size: cover;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+                z-index: 100;
+                transition: all 0.3s ease 0s;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                background: #000;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                border-radius: 20px;
+                z-index: 100;
+            }
+            &:hover {
+                &::before {
+                    transform: scale(1.1, 1.1);
+                }
+                &::after {
+                    opacity: 0.4;
+                    cursor: pointer;
+                }
+            }
+            @include m.mq("sp") {
+                width: 100%;
+                height: 209.82px;
+                margin-top: 20.24px;
+            }
+        }
+        .card__border {
+            border-radius: 20px;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            margin: 10px;
+            position: relative;
+            &:hover {
+                border: solid 1px b.$col_w;
+                z-index: 120;
+            }
+        }
+        .card__title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            color: b.$col_w;
+            padding-top: 93px;
+            position: relative;
+            z-index: 998;
+            &::after {
+                position: absolute;
+                content: "";
+                width: 40px;
+                height: 2px;
+                background: b.$col_w;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -20px;
+                @include m.mq("sp") {
+                    width: 30px;
+                }
+            }
+            @include m.mq("sp") {
+                padding-top: 62.86px;
+                font-size: 20px;
+            }
+        }
+        .card__text {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.7;
+            color: b.$col_w;
+            padding-top: 42px;
+            position: relative;
+            z-index: 998;
+            @include m.mq("sp") {
+                font-size: 12px;
+            }
+        }
+    }
+    .announce__contents-text {
+        background: b.$col_w;
+        font-size: 14px;
+        line-height: 2;
+        padding: 32px 40px 32px;
+        margin-top: 61.2px;
+        @include m.mq("wide") {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include m.mq("sp") {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .announce__red {
+            color: #ee5a6d;
+        }
+    }
+}
+
+// blog ====================================================================
+// blog ====================================================================
+
+.blog {
+    padding: 160px 0;
+    @include m.mq("sp") {
+        padding: 100px 0;
+    }
+    .blog__contents {
+        padding: 80px 0 60px;
+        display: flex;
+        flex-wrap: wrap;
+        @include m.mq("wide") {
+            padding: 48px 0 40px;
+            display: block;
+        }
+        @include m.mq("sp") {
+            padding: 48px 0 40px;
+            display: block;
+        }
+
+        .blog__card {
+            width: 300px;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(#000, 0.16);
+            &:not(:nth-child(3n + 1)) {
+                margin-left: 50px;
+                @include m.mq("wide") {
+                    margin: 20px auto 0 auto;
+                }
+                @include m.mq("sp") {
+                    margin: 20px 0 0 0;
+                }
+            }
+            &:nth-child(n + 4) {
+                margin-top: 50px;
+                @include m.mq("sp") {
+                    margin-top: 20px;
+                }
+            }
+            @include m.mq("wide") {
+                display: flex;
+                width: calc(100% - 160px);
+                height: 100%;
+                box-shadow: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            @include m.mq("sp") {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                box-shadow: none;
+            }
+            .entry-icon-new {
+                position: absolute;
+                content: "NEW";
+                width: 60px;
+                height: 60px;
+                color: b.$col_w;
+                background: #ee5a6d;
+                text-align: center;
+                line-height: 3.8;
+                left: -10px;
+                top: -10px;
+                border-radius: 99px;
+                z-index: 101;
+                @include m.mq("wide") {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 10px;
+                }
+                @include m.mq("sp") {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 10px;
+                }
+            }
+
+            .blog__img {
+                @include m.mq("wide") {
+                    width: 80%;
+                }
+                @include m.mq("sp") {
+                    width: 80%;
+                }
+                img {
+                    border-radius: 20px 20px 0 0;
+                    height: 188px;
+                    object-fit: cover;
+                    object-position: center;
+                    overflow: hidden;
+                    @include m.mq("wide") {
+                        border-radius: 0;
+                        position: relative;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: 100;
+                        min-width: 315px;
+                        max-width: 315px;
+                    }
+                    @include m.mq("sp") {
+                        border-radius: 0;
+                        position: relative;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: 100;
+                    }
+                }
+            }
+
+            .blog__text {
+                width: 100%;
+            }
+            .blog__tag {
+                position: absolute;
+                height: 28px;
+                font-size: 11px;
+                color: b.$col_w;
+                background: b.$col_main;
+                text-align: center;
+                line-height: 2.7;
+                top: 174px;
+                left: 14px;
+                border-radius: 99px;
+                padding: 0 10px;
+                @include m.mq("wide") {
+                    top: 2px;
+                    left: 330px;
+                }
+                @include m.mq("sp") {
+                    font-size: 10px;
+                    width: 56px;
+                    height: 18px;
+                    line-height: 1.9;
+                    top: 9px;
+                }
+            }
+
+            .blog__title {
+                font-size: 16px;
+                line-height: 1.5;
+                padding: 24px 24px 0;
+                position: relative;
+                @include m.mq("wide") {
+                    padding-top: 36px;
+                }
+                @include m.mq("sp") {
+                    font-size: 14px;
+                    line-height: 1.4;
+                    padding: 33px 0 0 10px;
+                    margin-right: auto;
+                }
+            }
+            .blog__date {
+                font-size: 11px;
+                line-height: 3.45;
+                padding-left: 24px;
+                color: #888;
+                @include m.mq("wide") {
+                    position: absolute;
+                    bottom: 0;
+                    line-height: normal;
+                }
+                @include m.mq("sp") {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+    .blog__btn {
+        color: b.$col_main;
+        background: b.$col_w;
+        border: solid 1px b.$col_main;
+        width: 274px;
+        height: 43px;
+        border-radius: 24px;
+        line-height: 2.6;
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        transition: all 0.5s;
+        &:hover {
+            cursor: pointer;
+            background: b.$col_main;
+            color: b.$col_w;
+            &::after {
+                background: url(https://mskwork.org/wp/wp-content/themes/ptf/img/icon-arrow-white-btn.png) no-repeat center center / contain;
+            }
+        }
+
+        @include m.mq("sp") {
+            width: 262px;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: url(https://mskwork.org/wp/wp-content/themes/ptf/img/icon-arrow-blue-btn.png) no-repeat center center / contain;
+            transition: all 0.5s;
+        }
+        @include m.mq("sp") {
+        }
+    }
+}

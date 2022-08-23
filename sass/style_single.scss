@@ -1,0 +1,270 @@
+@charset "UTF-8";
+
+@use "base" as b;
+@use "fonts" as f;
+@use "mixin" as m;
+@use "reset" as r;
+@use "variables" as v;
+
+
+// top =========================================================================
+// top =========================================================================
+.top {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 120px;
+
+    .top__contents {
+        max-width: 100%;
+        .top__img {
+            width: 100%;
+            margin: 0 auto;
+            height: 340px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            transition: all 0.2s;
+            @include m.mq("sp") {
+                height: 188px;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url("../img/img_blog/archive_top.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat; 
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+                z-index: 100;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                background: #000;
+                width: 100%;
+                height: inherit;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                border-radius: 20px;
+                z-index: 100;
+            }
+        }
+    }
+} 
+
+.top__title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    color: b.$col_w;
+    padding-top: 128px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        padding-top: 61.3px;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+.top__text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 2.5;
+    color: b.$col_w;
+    padding-top: 20px;
+    position: relative;
+    z-index: 997;
+    text-align: center;
+    @include m.mq("sp") {
+        font-size: 12px;
+        line-height: 3;
+        padding-top: 0px;
+    }
+}
+
+.top__tag {
+    display: flex;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 14px;
+    margin-left: 30px;
+    @include m.mq("sp") {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .top__home {
+        color: #C2C2C2;
+    }
+    .tag__left {
+        padding-left: 8px;
+    }
+}
+
+
+// single ==================================================================
+// single ==================================================================
+
+.single {
+    width: calc(100% - 300px - 30px);
+    @include m.mq("sp") {
+        width: 100%;
+    }
+    .single__contents {
+        width: 100%;
+        @include m.mq("sp") {
+            margin: 0 auto;
+        }
+    }
+}
+
+
+
+
+
+// pagenation =========================================================
+// pagenation =========================================================
+
+.single__pagenation {
+    margin-top: 100px;
+    width: 100%;
+   
+    .pagenation__contents {
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+
+        .pagenation__page {
+            display: flex;
+            color: #fff;
+            background: b.$col_main;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin: 0 5px;
+            transition: all 0.3s;
+            .pl {
+                padding-left: 6px;
+            }
+            img {
+                position: relative;
+                transition: all 0.3s;
+            }
+            &:hover {
+                .hover_left {
+                    transform: translateX(-5px);
+                }
+                .hover_right {
+                    transform: translateX(5px);
+                }
+            }
+            @include m.mq('wide') {
+                padding: 8px 10px;
+            }
+        }
+        .pagenation__btn {
+            border: solid 1px b.$col_main;
+            width: 90px;
+            text-align: center;
+            border-radius: 4px;
+            margin: 0 5px;
+            padding: 8px 0;
+            color: b.$col_main;
+            background: #fff;
+            transition: all 0.3s;
+            &:hover {
+                background: b.$col_main;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.single__contents {
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 0.08em;
+        line-height: 1.3;
+        color: b.$col_main;
+        border-left: 8px solid b.$col_main;
+        padding:  4px 0 4px 20px;
+        margin-bottom: 20px;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 0.08em;
+        line-height: 1.6;
+        color: b.$col_main;
+        border-bottom: solid 1px;
+        margin-bottom: 12px;
+    }
+    h4 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 0.08em;
+        line-height: 2;
+        color: b.$col_main;
+        margin-bottom: 12px;
+    }
+    .single__tag {
+        display: flex;
+        margin-bottom: 60px;
+        .single__date {
+            font-size: 16px;
+            line-height: 1.4;
+            color: b.$col_main;
+            position: relative;
+            display: inline-block;
+            padding-left: 18px;
+            &::after {
+                position: absolute;
+                content: "";
+                background: url("../img/img_blog/icon-time.png");
+                background-size: contain;
+                width: 14px;
+                height: 14px;
+                left: 0px;
+                top: 50%;
+                transform: translateY(-60%);
+            }
+        }
+        .single__cat {
+            color: #fff;
+            background: b.$col_main;
+            font-size: 11px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            line-height: 1.7;
+            margin-left: 32px;
+        }
+    }
+    .single__text {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 60px;
+    }
+}
+.news__pic {
+    img {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 20px;
+    }
+}
